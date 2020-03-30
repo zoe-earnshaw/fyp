@@ -51,7 +51,7 @@ for h_att in h_att_list:
     print(h_att.hist_name)
     for process in processes:
         if process == "signal":
-            file_list.append(ROOT.TFile(process + "_" + args.stop_mass + "_" + args.lsp_mass + ".output.root"))
+            file_list.append(ROOT.TFile("/signalpoints/" + process + "_" + args.stop_mass + "_" + args.lsp_mass + ".output.root"))
         else:
             file_list.append(ROOT.TFile(process + ".output.root"))            
 
