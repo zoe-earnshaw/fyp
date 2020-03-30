@@ -15,8 +15,8 @@ for name in process_names:
     testchain.Add("/lustre/scratch/epp/atlas/iv41/OUTPUT/UpgradeAnalysisOutput/LargeDM/" + name + "*_NTUP.root")
     file_name = name
     if "signal" in name:
-        file_name = "signal"
-    outputfile = ROOT.TFile(file_name + "_" + args.stop_mass + "_" + args.lsp_mass + ".output.root", "recreate")
+        file_name = "signal" + "_" + args.stop_mass + "_" + args.lsp_mass
+    outputfile = ROOT.TFile(file_name + ".output.root", "recreate")
 
     print(testchain.GetEntries())
 
