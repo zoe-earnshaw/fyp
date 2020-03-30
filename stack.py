@@ -88,6 +88,6 @@ for h_att in h_att_list:
     legend.Draw()
 
     c_met.SetLogy()
-    c_met.Print("stackgraph/Stack"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
+    c_met.Print("stackgraphs/Stack"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
 
     time.sleep(0.5)
