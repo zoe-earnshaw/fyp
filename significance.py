@@ -74,7 +74,7 @@ for h_att in h_att_list:
     cuts = np.linspace(h_att.start, h_att.stop, h_att.step)
     h_cuts = ROOT.TH1F('cuts', 'cuts;'+h_att.x_axis_title+';significance', h_att.step, h_att.start, h_att.stop)
 
-    with open(h_att.hist_name+"_cuts.csv", 'wb') as csvfile:
+    with open("significancecharts/" + h_att.hist_name + "_cuts.csv", 'wb') as csvfile:
         cutwriter = csv.writer(csvfile)
         cutwriter.writerow(['cut', 'W', 'Z', 'top', 'ttV', 'single top', 'total background', 'signal', 'significance'])
 
@@ -104,7 +104,7 @@ for h_att in h_att_list:
 
     h_cuts.Draw("hist")
 
-    c_nbjets.Print("Significance"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
+    c_nbjets.Print("significancegraphs/Significance"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
 
 #check table
 #repeat signal points
