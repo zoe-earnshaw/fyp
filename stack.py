@@ -50,7 +50,10 @@ for h_att in h_att_list:
 
     print(h_att.hist_name)
     for process in processes:
-        file_list.append(ROOT.TFile(process + "_" + args.stop_mass + "_" + args.lsp_mass + ".output.root"))
+        if process == "signal":
+            file_list.append(ROOT.TFile(process + "_" + args.stop_mass + "_" + args.lsp_mass + ".output.root"))
+        else:
+            file_list.append(ROOT.TFile(process + ".output.root"))            
 
     paired_list = zip(processes, file_list)
 
