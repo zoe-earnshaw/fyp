@@ -12,7 +12,7 @@ with open('best_significance.csv', 'rb') as f:
         print(row)
         print(" ")
         print(row[0])
-        print(type(row[0])
+        print(type(row[0]))
 #        h_significance.Fill(row[0], row[1], row[2])
         
 #outputfile.Write()
