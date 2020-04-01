@@ -107,7 +107,7 @@ for h_att in h_att_list:
             #record best significance
             print("h_att is: ", h_att, " cut is: ", cut)
             if (h_att == nbjets) and (cut == cuts[1]):
-                print('the best significance is: ' + significance)
+                print('the best significance is: ', significance)
                 best_significance = significance
             
 #            print("Cut at ", cut, h_att.hist_name)
