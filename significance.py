@@ -105,7 +105,7 @@ for h_att in h_att_list:
             significance = ROOT.RooStats.NumberCountingUtils.BinomialExpZ(signal_events, totalbg_events, 0.15)
 
             #record best significance
-            if (h_att == nbjets) and (cut = cuts[0]):
+            if (h_att == nbjets) and (cut == cuts[0]):
                 best_significance = significance
             
 #            print("Cut at ", cut, h_att.hist_name)
