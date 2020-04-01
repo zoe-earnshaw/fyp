@@ -49,4 +49,4 @@ args = [
 ]
 
 for arg in args:
-  os.system("python filename.py " + arg) 
+  os.system("python significance.py " + arg) 
