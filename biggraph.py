@@ -11,8 +11,8 @@ with open('best_significance.csv', 'rb') as f:
     for row in reader:
         print(row)
         print(" ")
-        print(row[0])
-        print(type(row[0]))
+        print(row[2])
+        print(type(row[2]))
 #        h_significance.Fill(row[0], row[1], row[2])
         
 #outputfile.Write()
