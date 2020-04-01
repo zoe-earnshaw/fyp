@@ -2,17 +2,25 @@
 import argparse
 import ROOT, sys
 
+#take stop and lsp mass for chosen signal point from input
 parser = argparse.ArgumentParser()
 parser.add_argument("stop_mass")
 parser.add_argument("lsp_mass")
 args = parser.parse_args()
 
-process_names = ['signal*directTT*' + args.stop_mass + '_' + args.lsp_mass + '.*', 'singletop','top','ttV', 'W','Z']
+#listing signal and background processes
+process_names = ['signalpoints/signal*directTT*' + args.stop_mass + '_' + args.lsp_mass + '.*', 'singletop','top','ttV', 'W','Z']
 
+#for each process:
 for name in process_names:
     print(name)
-    testchain = ROOT.TChain ("StopZeroLeptonUpgrade__ntuple")
+    
+    #creating Tchain
+    testchain = ROOT.TChain("StopZeroLeptonUpgrade__ntuple")
+    #adding root files for given process
     testchain.Add("/lustre/scratch/epp/atlas/iv41/OUTPUT/UpgradeAnalysisOutput/LargeDM/" + name + "*_NTUP.root")
+   
+    #creating output file
     file_name = name
     if "signal" in name:
         file_name = "signal" + "_" + args.stop_mass + "_" + args.lsp_mass
@@ -20,6 +28,7 @@ for name in process_names:
 
     print(testchain.GetEntries())
 
+    #creating histograms for variables
     h_met = ROOT.TH1F("h_met"," ",100,0,2000)
     h_nbjets = ROOT.TH1F("h_nbjets"," ",10,0,10)
     h_njets = ROOT.TH1F("h_njets"," ",20,0,20)
@@ -32,8 +41,9 @@ for name in process_names:
     h_antikt12m1 = ROOT.TH1F("h_antikt12m1"," ",100,0,1000)
     h_drbb = ROOT.TH1F("h_drbb"," ",100,0,5)
 
-    #2 signals at different delta m
+    #should have 2 signals at different delta m
 
+    #applying cuts
     counter = 0
     for entry in testchain:
         if (entry.NBJets < 2) or \
@@ -44,6 +54,7 @@ for name in process_names:
                 (entry.AntiKt8M_1 < 150) or \
                 (entry.Met < 800):
             continue
+        #filling variable hists & weighting, if entry passes the cuts
         h_met.Fill(entry.Met, entry.GlobalWeight)
         h_nbjets.Fill(entry.NBJets, entry.GlobalWeight)
         h_njets.Fill(entry.NJets, entry.GlobalWeight)
