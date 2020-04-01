@@ -21,11 +21,11 @@ args = parser.parse_args()
 ROOT.RooStats.NumberCountingUtils.BinomialExpZ(1,1,1)
 
 f_signal = ROOT.TFile("signal_"+args.stop_mass+"_"+args.lsp_mass+".output.root")
-f_W = ROOT.TFile("W_"+args.stop_mass+"_"+args.lsp_mass+".output.root")
-f_Z = ROOT.TFile("Z_"+args.stop_mass+"_"+args.lsp_mass+".output.root")
-f_top = ROOT.TFile("top_"+args.stop_mass+"_"+args.lsp_mass+".output.root")
-f_ttV = ROOT.TFile("ttV_"+args.stop_mass+"_"+args.lsp_mass+".output.root")
-f_singletop = ROOT.TFile("singletop_"+args.stop_mass+"_"+args.lsp_mass+".output.root")
+f_W = ROOT.TFile("W.output.root")
+f_Z = ROOT.TFile("Z.output.root")
+f_top = ROOT.TFile("top.output.root")
+f_ttV = ROOT.TFile("ttV.output.root")
+f_singletop = ROOT.TFile("singletop.output.root")
 
 h_att_list = []
 
