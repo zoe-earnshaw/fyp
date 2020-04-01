@@ -3,6 +3,7 @@ import argparse
 import csv
 #import numpy as np
 
+#defining class to organise histogram attributes
 class hist_attributes:
     def __init__(self, name="", title="", start=0, stop=100, step=10):
         print("Creating hist attributes!")
@@ -13,6 +14,7 @@ class hist_attributes:
         self.step = step
         self.tag = ""
 
+#taking signal point info from input
 parser = argparse.ArgumentParser()
 parser.add_argument("stop_mass")
 parser.add_argument("lsp_mass")
@@ -27,6 +29,7 @@ f_top = ROOT.TFile("top.output.root")
 f_ttV = ROOT.TFile("ttV.output.root")
 f_singletop = ROOT.TFile("singletop.output.root")
 
+#creating list of histogram attributes for each variable
 h_att_list = []
 
 njets = hist_attributes("h_njets", "Number of total jets", 0, 20, 20)
@@ -54,7 +57,9 @@ h_att_list.append(antikt8m1)
 antikt8m0 = hist_attributes("h_antikt8m0", "AntiKt8M_0", 0, 1000, 100)
 h_att_list.append(antikt8m0)
 
+#for each variable:
 for h_att in h_att_list:
+    #get histogram for each process, then scale
     h_signal = f_signal.Get(h_att.hist_name)
     h_W = f_W.Get(h_att.hist_name)
     h_Z = f_Z.Get(h_att.hist_name)
@@ -71,16 +76,19 @@ for h_att in h_att_list:
 
     h_totalbackground = h_W + h_Z + h_top + h_ttV + h_singletop
 
+    #making a list of cuts for the variable
     cuts = []
     i = h_att.start
     while i <= h_att.stop:
         cuts.append(i)
         i += h_att.step
-
 #    cuts = np.linspace(h_att.start, h_att.stop, h_att.step)
+
+    #creating histogram for significance against cuts on this variable
     h_cuts = ROOT.TH1F('cuts', 'cuts;'+h_att.x_axis_title+';significance', h_att.step, h_att.start, h_att.stop)
 
-    with open("significancecharts/" + h_att.hist_name + "_cuts.csv", 'wb') as csvfile:
+    #creating spreadsheet for significance against cuts on this variable
+    with open("significancecharts/" + h_att.hist_name + "_" + args.stop_mass + "_" + args.lsp_mass + "_cuts.csv", 'wb') as csvfile:
         cutwriter = csv.writer(csvfile)
         cutwriter.writerow(['cut', 'W', 'Z', 'top', 'ttV', 'single top', 'total background', 'signal', 'significance'])
 
