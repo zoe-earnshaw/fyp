@@ -1,4 +1,4 @@
-import system
+#import system
 
 args = [
   "1000 1",
