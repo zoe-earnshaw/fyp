@@ -119,16 +119,18 @@ for h_att in h_att_list:
             h_cuts.Fill(cut,significance)
 
         
-    #write best significance to a new csv
-    with open("best_significance.csv", 'wb') as sfile:
-        swriter = csv.writer(sfile)
-       # swriter.writerow([args.stop_mass, args.lsp_mass, best_significance])
 
     c_nbjets = ROOT.TCanvas()
 
     h_cuts.Draw("hist")
 
     c_nbjets.Print("significancegraphs/Significance"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
+
+    
+#write best significance to a new csv
+with open("best_significance.csv", 'wb') as sfile:
+    swriter = csv.writer(sfile)
+    swriter.writerow([args.stop_mass, args.lsp_mass, best_significance])
 
 #check table
 #repeat signal points
