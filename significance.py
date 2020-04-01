@@ -71,7 +71,13 @@ for h_att in h_att_list:
 
     h_totalbackground = h_W + h_Z + h_top + h_ttV + h_singletop
 
-    cuts = np.linspace(h_att.start, h_att.stop, h_att.step)
+    cuts = []
+    i = h_att.start
+    while i <= h_att.stop:
+        cuts.append(i)
+        i += h_att.step
+
+#    cuts = np.linspace(h_att.start, h_att.stop, h_att.step)
     h_cuts = ROOT.TH1F('cuts', 'cuts;'+h_att.x_axis_title+';significance', h_att.step, h_att.start, h_att.stop)
 
     with open("significancecharts/" + h_att.hist_name + "_cuts.csv", 'wb') as csvfile:
