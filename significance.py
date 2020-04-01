@@ -32,11 +32,11 @@ f_singletop = ROOT.TFile("singletop.output.root")
 #creating list of histogram attributes for each variable
 h_att_list = []
 
-njets = hist_attributes("h_njets", "Number of total jets", 0, 20, 20)
+njets = hist_attributes("h_njets", "Number of total jets", 0, 20, 1)
 h_att_list.append(njets)
-nnonbjets = hist_attributes("h_nnonbjets", "Number of non-b-jets", 0, 20, 20)
+nnonbjets = hist_attributes("h_nnonbjets", "Number of non-b-jets", 0, 20, 1)
 h_att_list.append(nnonbjets)
-nbjets = hist_attributes("h_nbjets","Number of b-jets", 0, 5, 5)
+nbjets = hist_attributes("h_nbjets","Number of b-jets", 0, 5, 1)
 h_att_list.append(nbjets)
 
 met = hist_attributes("h_met", "Missing E_t", 0, 2000, 100)
