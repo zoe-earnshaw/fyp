@@ -105,6 +105,7 @@ for h_att in h_att_list:
             significance = ROOT.RooStats.NumberCountingUtils.BinomialExpZ(signal_events, totalbg_events, 0.15)
 
             #record best significance
+            print("h_att is: ", h_att, " cut is: ", cut)
             if (h_att == nbjets) and (cut == cuts[1]):
                 print('the best significance is: ' + significance)
                 best_significance = significance
@@ -121,7 +122,7 @@ for h_att in h_att_list:
     #write best significance to a new csv
     with open("best_significance.csv", 'wb') as sfile:
         swriter = csv.writer(sfile)
-        swriter.writerow([args.stop_mass, args.lsp_mass, best_significance])
+       # swriter.writerow([args.stop_mass, args.lsp_mass, best_significance])
 
     c_nbjets = ROOT.TCanvas()
 
