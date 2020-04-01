@@ -20,7 +20,7 @@ args = parser.parse_args()
 
 ROOT.RooStats.NumberCountingUtils.BinomialExpZ(1,1,1)
 
-f_signal = ROOT.TFile("signal_"+args.stop_mass+"_"+args.lsp_mass+".output.root")
+f_signal = ROOT.TFile("signalpoints/signal_"+args.stop_mass+"_"+args.lsp_mass+".output.root")
 f_W = ROOT.TFile("W.output.root")
 f_Z = ROOT.TFile("Z.output.root")
 f_top = ROOT.TFile("top.output.root")
