@@ -1,4 +1,4 @@
-#import system
+import os
 
 args = [
   "1000 1",
@@ -49,4 +49,4 @@ args = [
 ]
 
 for arg in args:
-  system("python filename.py " + arg) 
+  os.system("python filename.py " + arg) 
