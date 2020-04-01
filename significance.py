@@ -104,15 +104,23 @@ for h_att in h_att_list:
             signal_events = h_signal.Integral(h_signal.FindBin(cut), 10000)
             significance = ROOT.RooStats.NumberCountingUtils.BinomialExpZ(signal_events, totalbg_events, 0.15)
 
+            #record best significance
+            if (h_att == nbjets) and (cut = cuts[0]):
+                best_significance = significance
+            
 #            print("Cut at ", cut, h_att.hist_name)
 #            print("Background events above cut: ", h_W.Integral(h_totalbackground.FindBin(cut),10000))
 #            print("Signal events above cut: ", h_signal.Integral(h_signal.FindBin(cut),10000))
 #            print("Significance: ", ROOT.RooStats.NumberCountingUtils.BinomialExpZ(h_signal.Integral(h_signal.FindBin(cut),10000), h_totalbackground.Integral(h_totalbackground.FindBin(cut),10000), 0.15))
 #            print(" ")
             cutwriter.writerow([cut, W_events, Z_events, top_events, ttV_events, singletop_events, totalbg_events, signal_events, significance])
-
             h_cuts.Fill(cut,significance)
 
+        
+    #write best significance to a new csv
+    with open("best_significance.csv", 'wb') as sfile:
+        swriter = csv.writer(sfile)
+        swriter.writerow([args.stop_mass, args.lsp_mass, best_significance])
 
     c_nbjets = ROOT.TCanvas()
 
