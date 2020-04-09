@@ -9,7 +9,7 @@ parser.add_argument("lsp_mass")
 args = parser.parse_args()
 
 #listing signal and background processes
-process_names = ['signalpoints/signal*directTT*' + args.stop_mass + '_' + args.lsp_mass + '.*', 'singletop','top','ttV', 'W','Z']
+process_names = ['signalpoints/signal*directTT*' + args.stop_mass + '_' + args.lsp_mass + '.*']
 
 #for each process:
 for name in process_names:
@@ -23,8 +23,8 @@ for name in process_names:
     #creating output file
     file_name = name
     if "signal" in name:
-        file_name = "original_signal" + "_" + args.stop_mass + "_" + args.lsp_mass
-    outputfile = ROOT.TFile("original_" + file_name + ".output.root", "recreate")
+        file_name = "signal" + "_" + args.stop_mass + "_" + args.lsp_mass
+    outputfile = ROOT.TFile("originalsignalpoints/original_" + file_name + ".output.root", "recreate")
 
     print(testchain.GetEntries())
 
