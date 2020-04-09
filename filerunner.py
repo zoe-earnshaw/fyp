@@ -49,4 +49,4 @@ args = [
 ]
 
 for arg in args:
-  os.system("python significance.py " + arg) 
+  os.system("python original_output_file_generator.py " + arg) 
