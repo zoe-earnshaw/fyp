@@ -46,15 +46,7 @@ for name in process_names:
     #applying cuts
     counter = 0
     for entry in testchain:
-        if (entry.NBJets < 2) or \
-                (entry.AntiKt12M_1 < 100) or \
-                (entry.AntiKt12M_1 > 250) or \
-                (entry.SumEt < 1500) or \
-                (entry.AntiKt8M_0 < 150) or \
-                (entry.AntiKt8M_1 < 150) or \
-                (entry.Met < 800):
-            continue
-        #filling variable hists & weighting, if entry passes the cuts
+        #filling variable hists & weighting without cuts
         h_met.Fill(entry.Met, entry.GlobalWeight)
         h_nbjets.Fill(entry.NBJets, entry.GlobalWeight)
         h_njets.Fill(entry.NJets, entry.GlobalWeight)
