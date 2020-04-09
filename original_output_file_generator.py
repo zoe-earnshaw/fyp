@@ -9,7 +9,7 @@ parser.add_argument("lsp_mass")
 args = parser.parse_args()
 
 #listing signal and background processes
-process_names = ['signalpoints/signal*directTT*' + args.stop_mass + '_' + args.lsp_mass + '.*']
+process_names = ['signal*directTT*' + args.stop_mass + '_' + args.lsp_mass + '.*']
 
 #for each process:
 for name in process_names:
