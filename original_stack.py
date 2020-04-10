@@ -4,7 +4,6 @@ import time
 
 class hist_attributes:
     def __init__(self, name="", title=""):
-        print("Creating hist attributes!")
         self.hist_name = name
         self.x_axis_title = title
         self.tag = ""
@@ -18,24 +17,24 @@ colour_list = [ROOT.kRed, ROOT.kOrange, ROOT.kYellow, ROOT.kSpring, ROOT.kTeal, 
 
 h_att_list = []
 
-#njets = hist_attributes("h_njets", "Number of total jets")
-#h_att_list.append(njets)
-#nnonbjets = hist_attributes("h_nnonbjets", "Number of non-b-jets")
-#h_att_list.append(nnonbjets)
-#nbjets = hist_attributes("h_nbjets","Number of b-jets")
-#h_att_list.append(nbjets)
+njets = hist_attributes("h_njets", "Number of total jets")
+h_att_list.append(njets)
+nnonbjets = hist_attributes("h_nnonbjets", "Number of non-b-jets")
+h_att_list.append(nnonbjets)
+nbjets = hist_attributes("h_nbjets","Number of b-jets")
+h_att_list.append(nbjets)
 
 met = hist_attributes("h_met", "Missing E_t")
 h_att_list.append(met)
 sumet = hist_attributes("h_sumet", "Sum of transverse momentum")
 h_att_list.append(sumet)
-#top1mass = hist_attributes("h_top1mass", "Top 1 mass")
-#h_att_list.append(top1mass)
-#drbb = hist_attributes("h_drbb", "DRBB")
-#3h_att_list.append(drbb)
+top1mass = hist_attributes("h_top1mass", "Top 1 mass")
+h_att_list.append(top1mass)
+drbb = hist_attributes("h_drbb", "DRBB")
+h_att_list.append(drbb)
 
-#antikt12m0 = hist_attributes("h_antikt12m0", "AntiKt12M_0")
-#h_att_list.append(antikt12m0)
+antikt12m0 = hist_attributes("h_antikt12m0", "AntiKt12M_0")
+h_att_list.append(antikt12m0)
 antikt12m1 = hist_attributes("h_antikt12m1", "AntiKt12M_1")
 h_att_list.append(antikt12m1)
 antikt8m1 = hist_attributes("h_antikt8m1", "AntiKt8M_1")
@@ -52,9 +51,9 @@ for h_att in h_att_list:
     for process in processes:
         print(process)
         if process == "signal":
-            file_list.append(ROOT.TFile("signalpoints/original_" + process + "_" + args.stop_mass + "_" + args.lsp_mass + ".output.root"))
+            file_list.append(ROOT.TFile("originalsignalpoints/original_" + process + "_" + args.stop_mass + "_" + args.lsp_mass + ".output.root"))
         else:
-            file_list.append(ROOT.TFile(process + ".output.root"))            
+            file_list.append(ROOT.TFile("original_" + process + ".output.root"))            
 
     paired_list = zip(processes, file_list)
 
@@ -88,6 +87,6 @@ for h_att in h_att_list:
     legend.Draw()
 
     c_met.SetLogy()
-    c_met.Print("stackgraphs/Original_stack"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
+    c_met.Print("originalstackgraphs/original_stack"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
 
-    time.sleep(0.5)
+ #   time.sleep(0.5)
