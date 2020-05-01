@@ -25,24 +25,24 @@ for name in process_names:
         cutwriter = csv.writer(csvfile)
         cutwriter.writerow(['met','njets','nbjets','nnonbjets','top1mass','sumet','antikt8m0','antikt8m1','antikt12m0','antikt12m1','drbb'])
 
-    #creating Tchain
-    testchain = ROOT.TChain("StopZeroLeptonUpgrade__ntuple")
-    #adding root files for given process
-    testchain.Add("/lustre/scratch/epp/atlas/iv41/OUTPUT/UpgradeAnalysisOutput/LargeDM/" + name + "*_NTUP.root")
+        #creating Tchain
+        testchain = ROOT.TChain("StopZeroLeptonUpgrade__ntuple")
+        #adding root files for given process
+        testchain.Add("/lustre/scratch/epp/atlas/iv41/OUTPUT/UpgradeAnalysisOutput/LargeDM/" + name + "*_NTUP.root")
    
-    #creating output file
+        #creating output file
 
-    print(testchain.GetEntries())
+        print(testchain.GetEntries())
 
-    #applying cuts
-    counter = 0
-    for entry in testchain:
-        if (entry.NBJets < 2):
-            continue
-        #writing to csv, if entry passes the cuts
+        #applying cuts
+        counter = 0
+        for entry in testchain:
+            if (entry.NBJets < 2):
+                continue
+                #writing to csv, if entry passes the cuts
         
-        cutwriter.writerow([entry.Met, entry.NBJets, entry.NJets, entry.NNonBJets, entry.top1M, entry.SumEt, entry.AntiKt8M_0, entry.AntiKt8M_1, entry.AntiKt12M_0, entry.AntiKt12M_1, entry.DRBB, is_signal])
+            cutwriter.writerow([entry.Met, entry.NBJets, entry.NJets, entry.NNonBJets, entry.top1M, entry.SumEt, entry.AntiKt8M_0, entry.AntiKt8M_1, entry.AntiKt12M_0, entry.AntiKt12M_1, entry.DRBB, is_signal])
 
-        counter += 1
-        if counter%1000 == 0:
-            print("Counter = ", counter)
+            counter += 1
+            if counter%1000 == 0:
+                print("Counter = ", counter)
