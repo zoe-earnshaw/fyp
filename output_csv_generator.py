@@ -18,12 +18,13 @@ for name in process_names:
         
     if 'signal' in name:
         is_signal = 1
+        name = "signal_"+ args.stop_mass + "_" + args.lsp_mass
     else:
         is_signal = 0
     
-    with open("csvfile/" + name + "_data_" + args.stop_mass + "_" + args.lsp_mass + ".csv", 'wb') as csvfile:
+    with open("csvfile/" + name + "_data_" + ".csv", 'wb') as csvfile:
         cutwriter = csv.writer(csvfile)
-        cutwriter.writerow(['met','njets','nbjets','nnonbjets','top1mass','sumet','antikt8m0','antikt8m1','antikt12m0','antikt12m1','drbb'])
+        cutwriter.writerow(['met','njets','nbjets','nnonbjets','top1mass','sumet','antikt8m0','antikt8m1','antikt12m0','antikt12m1','drbb','is_signal'])
 
         #creating Tchain
         testchain = ROOT.TChain("StopZeroLeptonUpgrade__ntuple")
