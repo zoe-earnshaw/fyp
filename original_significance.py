@@ -78,10 +78,9 @@ for h_att in h_att_list:
     #making a list of cuts for the variable
     cuts = []
     i = h_att.start
-    while i <= h_att.stop:
+    while i < h_att.stop:
         cuts.append(i)
         i += h_att.step
-#    cuts = np.linspace(h_att.start, h_att.stop, h_att.step)
 
     #creating histogram for significance against cuts on this variable
     h_cuts = ROOT.TH1F('cuts', 'cuts;'+h_att.x_axis_title+';significance', h_att.step, h_att.start, h_att.stop)
