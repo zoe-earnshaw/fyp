@@ -49,4 +49,4 @@ args = [
 ]
 
 for arg in args:
-  os.system("python output_csv_generator.py " + arg) 
+  os.system("python original_significance.py " + arg) 
