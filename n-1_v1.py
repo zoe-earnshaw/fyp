@@ -147,7 +147,7 @@ for h_att in h_att_list:
         i += h_att.step
 
 #    cuts = np.linspace(h_att.start, h_att.stop, h_att.step)
-    h_cuts = ROOT.TH1F('cuts', 'cuts;'+h_att.x_axis_title+';significance', h_att.step, h_att.start, h_att.stop)
+    h_cuts = ROOT.TH1F('cuts', 'cuts;'+h_att.x_axis_title+';significance', (h_att.stop-h_att.start)/h_att.step, h_att.start, h_att.stop)
 
     with open(h_att.hist_name+"_cuts.csv", 'wb') as csvfile:
         cutwriter = csv.writer(csvfile)
