@@ -130,9 +130,9 @@ for h_att in h_att_list:
 
     
 #write best significance to a new csv
-with open("best_significance.csv", 'ab') as sfile:
+with open("new_best_significance.csv", 'ab') as sfile:
     swriter = csv.writer(sfile)
-    swriter.writerow([args.stop_mass, args.lsp_mass, best_significance, best_pval])
+    swriter.writerow([args.stop_mass, args.lsp_mass, best_significance, best_pval, (best_pval<0.05)])
 
 #check table
 #repeat signal points
