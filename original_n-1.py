@@ -26,8 +26,8 @@ for name in process_names:
     testchain.Add("/lustre/scratch/epp/atlas/iv41/OUTPUT/UpgradeAnalysisOutput/LargeDM/" + name + "*_NTUP.root")
     file_name = name
     if "signal" in name:
-        file_name = "signal"
-    outputfile = ROOT.TFile("original_" + file_name + "_N-1_" + args.stop_mass + "_" + args.lsp_mass + ".output.root", "recreate")
+        file_name = "signal" + args.stop_mass + "_" + args.lsp_mass
+    outputfile = ROOT.TFile("original_" + file_name + "_N-1.output.root", "recreate")
 
     print(testchain.GetEntries())
 
@@ -97,12 +97,12 @@ for name in process_names:
     outputfile.Close()
 
 
-f_signal = ROOT.TFile("originalsignalpoints/original_signal_"+args.stop_mass+"_"+args.lsp_mass+".output.root")
-f_W = ROOT.TFile("original_W.output.root")
-f_Z = ROOT.TFile("original_Z.output.root")
-f_top = ROOT.TFile("original_top.output.root")
-f_ttV = ROOT.TFile("original_ttV.output.root")
-f_singletop = ROOT.TFile("original_singletop.output.root")
+f_signal = ROOT.TFile("originalsignalpoints/original_signal_"+args.stop_mass+"_"+args.lsp_mass+"N-1.output.root")
+f_W = ROOT.TFile("original_W_N-1.output.root")
+f_Z = ROOT.TFile("original_Z_N-1.output.root")
+f_top = ROOT.TFile("original_top_N-1.output.root")
+f_ttV = ROOT.TFile("original_ttV_N-1.output.root")
+f_singletop = ROOT.TFile("original_singletop_N-1.output.root")
 
 h_att_list = []
 
