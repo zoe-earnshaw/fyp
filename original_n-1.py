@@ -97,7 +97,7 @@ for name in process_names:
     outputfile.Close()
 
 
-f_signal = ROOT.TFile("originalsignalpoints/original_signal_"+args.stop_mass+"_"+args.lsp_mass+"_N-1.output.root")
+f_signal = ROOT.TFile("original_signal_"+args.stop_mass+"_"+args.lsp_mass+"_N-1.output.root")
 f_W = ROOT.TFile("original_W_N-1.output.root")
 f_Z = ROOT.TFile("original_Z_N-1.output.root")
 f_top = ROOT.TFile("original_top_N-1.output.root")
