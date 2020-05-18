@@ -24,7 +24,7 @@ h_att_list.append(nnonbjets)
 nbjets = hist_attributes("h_nbjets","Number of b-jets")
 h_att_list.append(nbjets)
 
-met = hist_attributes("h_met", "Missing E_t")
+met = hist_attributes("h_met", "Missing E_{t} [GeV]")
 h_att_list.append(met)
 sumet = hist_attributes("h_sumet", "Sum of transverse momentum")
 h_att_list.append(sumet)
