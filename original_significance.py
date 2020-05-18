@@ -119,9 +119,11 @@ for h_att in h_att_list:
 
     c_nbjets = ROOT.TCanvas()
 
-    h_cuts.Draw("E")
+    h_cuts.Draw("")
 
     c_nbjets.Print("originalsignificancegraphs/original_significance"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
+  
+    c_nbjets.Print("originalsignificancegraphs/original_significance"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".C")
 
     
 #write best significance to a new csv
