@@ -119,7 +119,7 @@ for h_att in h_att_list:
 
     c_nbjets = ROOT.TCanvas()
 
-    h_cuts.Draw("hist")
+    h_cuts.Draw("E")
 
     c_nbjets.Print("originalsignificancegraphs/original_significance"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
 
