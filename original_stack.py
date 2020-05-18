@@ -85,7 +85,7 @@ for h_att in h_att_list:
     for i in range(6):
         legend.AddEntry(cumulative_hist_list[i], processes[i])
     legend.Draw()
-
+    c_met.gStyle.SetOptStat(0)
     c_met.SetLogy()
     c_met.Print("originalstackgraphs/original_stack"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
 
