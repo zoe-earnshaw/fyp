@@ -81,7 +81,7 @@ for h_att in h_att_list:
         cumulative_hist_list[i].SetFillColor(colour_list[i])
         cumulative_hist_list[i].Draw("histsame")
 
-    legend = ROOT.TLegend(0.7,0.7,0.8,0.8)
+    legend = ROOT.TLegend(0.6,0.7,0.8,0.8)
     for i in range(6):
         legend.AddEntry(cumulative_hist_list[i], processes[i])
     legend.Draw()
