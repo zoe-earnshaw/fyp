@@ -81,7 +81,7 @@ for h_att in h_att_list:
         cumulative_hist_list[i].SetFillColor(colour_list[i])
         cumulative_hist_list[i].Draw("histsame")
 
-    legend = ROOT.TLegend(0.6,0.7,0.8,0.8)
+    legend = ROOT.TLegend(0.6,0.65,0.8,0.8)
     for i in range(6):
         legend.AddEntry(cumulative_hist_list[i], processes[i])
     legend.Draw()
@@ -89,4 +89,4 @@ for h_att in h_att_list:
     c_met.SetLogy()
     c_met.Print("originalstackgraphs/original_stack"+h_att.tag+"_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
 
- #   time.sleep(0.5)
+    time.sleep(0.5)
