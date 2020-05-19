@@ -80,12 +80,12 @@ for name in process_names:
                 (entry.Met > 800):
             h_antikt8m1.Fill(entry.AntiKt8M_1, entry.GlobalWeight)
 
-        if (entry.NBJets > 2) and \
-                (entry.AntiKt12M_1 > 100) and \
-                (entry.AntiKt12M_1 < 250) and \
-                (entry.SumEt > 1500) and \
-                (entry.AntiKt8M_0 > 150) and \
-                (entry.AntiKt8M_1 > 150):
+ #       if (entry.NBJets > 2) and \
+#                (entry.AntiKt12M_1 > 100) and \
+  #              (entry.AntiKt12M_1 < 250) and \
+   #             (entry.SumEt > 1500) and \
+    #            (entry.AntiKt8M_0 > 150) and \
+     #           (entry.AntiKt8M_1 > 150):
             h_met.Fill(entry.Met, entry.GlobalWeight)
 
 
