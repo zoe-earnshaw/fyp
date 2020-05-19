@@ -86,7 +86,7 @@ for name in process_names:
    #             (entry.SumEt > 1500) and \
     #            (entry.AntiKt8M_0 > 150) and \
      #           (entry.AntiKt8M_1 > 150):
-            h_met.Fill(entry.Met, entry.GlobalWeight)
+        h_met.Fill(entry.Met, entry.GlobalWeight)
 
 
         counter += 1
