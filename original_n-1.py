@@ -171,5 +171,6 @@ for h_att in h_att_list:
 
     h_cuts.Draw("hist")
 
-    c_nbjets.Print("Significance"+h_att.tag+"_N-1_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
+#    c_nbjets.Print("Significance"+h_att.tag+"_N-1_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".pdf")
+    c_nbjets.Print("Significance"+h_att.tag+"_N-1_"+h_att.hist_name+"_"+args.stop_mass+"_"+args.lsp_mass+".C")
 
