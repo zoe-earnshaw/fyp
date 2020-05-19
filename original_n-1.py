@@ -48,7 +48,7 @@ for name in process_names:
                 (entry.Met > 800):
             h_nbjets.Fill(entry.NBJets, entry.GlobalWeight)
 
-        if (entry.NBJets > 2) and \
+        if (entry.NBJets >= 2) and \
                 (entry.SumEt > 1500) and \
                 (entry.AntiKt8M_0 > 150) and \
                 (entry.AntiKt8M_1 > 150) and \
@@ -56,7 +56,7 @@ for name in process_names:
             h_antikt12m1.Fill(entry.AntiKt12M_1, entry.GlobalWeight)
 
 
-        if (entry.NBJets > 2) and \
+        if (entry.NBJets >= 2) and \
                 (entry.AntiKt12M_1 > 100) and \
                 (entry.AntiKt12M_1 < 250) and \
                 (entry.AntiKt8M_0 > 150) and \
@@ -64,7 +64,7 @@ for name in process_names:
                 (entry.Met > 800):
             h_sumet.Fill(entry.SumEt, entry.GlobalWeight)
 
-        if (entry.NBJets > 2) and \
+        if (entry.NBJets >= 2) and \
                 (entry.AntiKt12M_1 > 100) and \
                 (entry.AntiKt12M_1 < 250) and \
                 (entry.SumEt > 1500) and \
@@ -72,7 +72,7 @@ for name in process_names:
                 (entry.Met > 800):
             h_antikt8m0.Fill(entry.AntiKt8M_0, entry.GlobalWeight)
 
-        if (entry.NBJets > 2) and \
+        if (entry.NBJets >= 2) and \
                 (entry.AntiKt12M_1 > 100) and \
                 (entry.AntiKt12M_1 < 250) and \
                 (entry.SumEt > 1500) and \
@@ -86,7 +86,7 @@ for name in process_names:
                 (entry.SumEt > 1500) and \
                 (entry.AntiKt8M_0 > 150) and \
                 (entry.AntiKt8M_1 > 150):
-        h_met.Fill(entry.Met, entry.GlobalWeight)
+          h_met.Fill(entry.Met, entry.GlobalWeight)
 
 
         counter += 1
